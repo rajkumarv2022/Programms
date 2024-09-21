@@ -4,7 +4,7 @@ public class CPboating1folowedby0{
     {
         Scanner scan=new Scanner(System.in);
 
-        int arr[]={1,0,1,1,1,0,0,1};
+        int arr[]={1,0,1,4,1,0,0,1};
 
         int i=0;
         int j=0;
