@@ -12,6 +12,36 @@
 
 public class CPCycleinList {
 
+    public static int tailoflength(Node h)
+    {
+        if(isContainloop(h)==null)
+        {
+            return -1;
+        }
+
+        Node slow=isContainloop(h);
+        Node h1=h;
+
+        while(h1!=slow)
+        {
+            h1=h1.next;
+            slow=slow.next;
+        }
+
+        int pos=1;
+
+        slow=h;
+
+        while(slow!=h1)
+        {
+            pos++;
+            slow=slow.next;
+        }
+
+        return pos;
+
+    }
+
     public static int lenofloop(Node h)
     {
 
@@ -111,7 +141,9 @@ public class CPCycleinList {
         
        // System.out.println(looppos(l1));
 
-       System.out.println(lenofloop(l1));
+       //System.out.println(lenofloop(l1));
+
+       System.out.println(tailoflength(l1));
 
     }
     public static void main(String[] args)
