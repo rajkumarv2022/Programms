@@ -12,6 +12,56 @@
 
 public class CPCycleinList {
 
+    public static int length(Node h)
+    {
+        int c=0;
+
+        while(h!=null)
+        {
+            c++;
+            h=h.next;
+        }
+
+        return c;
+    }
+
+    public static int junction(Node h1,Node h2)
+    {
+        int len1=length(h1);
+        int len2=length(h2);
+
+        Node ptr1=h1;
+        Node ptr2=h2;
+
+        int slen=Math.abs(len1-len2);
+
+        if(len1>len2)
+        {
+            while(slen>0)
+            {
+                ptr1=ptr1.next;
+                slen--;
+            }
+        }
+        else
+        {
+            while(slen>0)
+            {
+                ptr2=ptr2.next;
+                slen--;
+            }
+        }
+
+        while(ptr1!=ptr2)
+        {
+            ptr1=ptr1.next;
+            ptr2=ptr2.next;
+        }
+
+        return ptr1.data;
+
+    }
+
     public static int tailoflength(Node h)
     {
         if(isContainloop(h)==null)
@@ -124,6 +174,13 @@ public class CPCycleinList {
         Node l7=new Node(7,null);
         Node l8=new Node(8,null);
         Node l9=new Node(9,null);
+
+        //junction problem
+
+        Node n1=new Node(10,null);
+        Node n2=new Node(11,null);
+        Node n3=new Node(12,null);
+  
         l1.next=l2;
         l2.next=l3;
         l3.next=l4;
@@ -132,18 +189,28 @@ public class CPCycleinList {
         l6.next=l7;
         l7.next=l8;
         l8.next=l9;
-        l9.next=l4;
+        l9.next=null;
+
+        //junction problem
+
+        n1.next=n2;
+        n2.next=n3;
+        n3.next=l6;
 
         // if(isContainloop(l1)!=null)
         //     System.out.println(true);
         // else
         //     System.out.println(false);
         
-       // System.out.println(looppos(l1));
+        // System.out.println(looppos(l1));
 
-       //System.out.println(lenofloop(l1));
+        //System.out.println(lenofloop(l1));
 
-       System.out.println(tailoflength(l1));
+        //System.out.println(tailoflength(l1));
+
+        //junction problem
+
+        System.out.println(junction(l1,n1));
 
     }
     public static void main(String[] args)
