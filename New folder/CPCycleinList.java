@@ -9,8 +9,9 @@
 //         this.next=next;
 //     }
 // }
-
+import java.util.*;
 public class CPCycleinList {
+
 
     public static int length(Node h)
     {
